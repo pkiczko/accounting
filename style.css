@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial',fantasy;
+    background-color: rgb(101,102,111);
+    color: white;
+}
+h1 {text-align: center;}
+.inputsDiv {
+  justify-content: center;
+  width: 75%;
+  margin: 0 12.5%;
+  display:flex;
+  flex-grow: 2;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#description {
+  flex-grow: 1;
+}
+#amount {
+  width: 8em;
+  }
+#date {width: 8em;}
+#place {width: 16em;}
+#selector {
+  width: 8em;}
+button {
+    flex-basis: 10%;
+
+
+}
+div {
+
+  display: flex;
+  background-color: lightgray;
+  text-align: center;
+  width: 80%;
+  border-radius: 5px;
+  margin: 4px 10%;
+  color: white;
+  font-size: large;
+  font-weight: 800;
+  padding: 5px;
+
+}
+span {
+  flex-basis: 16.5%;
+
+  margin: 3px;
+  text-align: center;
+
+}
+main span {
+  flex-basis: 24.5%;
+  background-color: gray;
+  margin: 3px;
+  text-align: center;
+
+}
+article {text-align: center;}
+main {
+  display:flex;
+  flex-wrap: wrap;
+  }
+main article {
+  flex-basis: 50%;
+  width 100%;
+  margin: 10px 0;
+}
+main div {
+  flex-basis: 100%;
+}
+#balance {
+          width: 30%;
+          margin: 10px 35%;
+          justify-content: center;
+          background-color: skyblue;
+          }
+@media (max-width: 1000px) {
+
+    div {width: 94%;
+        margin: 3px 3%;}
+        
+
+}
+@media (max-width: 820px) {
+    main {overflow: hidden;}
+
+    div {width: 90%;
+
+        margin: 3px 4%;
+        flex-wrap: wrap;
+      align-content: stretch;}
+      #balance {
+                width: 50%;
+                margin: 10px 25%;
+              }
+      span {
+              flex-basis: 33%;
+              flex-grow: 2;
+              }
+              main {
+                flex-direction: column;
+                }
+
+  }
