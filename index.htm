@@ -28,7 +28,7 @@
     </span>
     <span>
       <label for='time'>Time (optional):</label><br>
-      <input id='time' type='time' placeholder='time' value='13:00';></input>
+      <input id='time' type='time' placeholder='time' ></input>
     </span>
     <span>
       <label for='place'>Where (optional):</label><br>
@@ -43,7 +43,12 @@
     </span>
     <span>
       <br>
-      <input value="Add" type="button" onclick='add();'>
+      <input id='addb' value="Add" type="button" onclick='add();'>
+
+    </span>
+    <span>
+      <br>
+      <input id='reset' value="Reset" type="button" onclick='localStorage.clear(); dataArray=[]; refresh();'>
 
     </span>
   </form>

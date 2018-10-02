@@ -11,7 +11,11 @@
 //   }
 // };
 //document.addEventListener("DOMContentLoaded", listPlaceholders);
+let dataArray  = [];
+if (localStorage.getItem('data')!==null){
+  dataArray = JSON.parse(localStorage.getItem("data"));
 
+};
 
 // let placeholder = (field) => {
 //
@@ -59,7 +63,7 @@ const twoDigit = (number) => {
   }
   else return number;
 }
-let dataArray = [];
+
 let balance = document.getElementById('balance');
 const refresh=()=>{
   // description.value='';
@@ -75,26 +79,31 @@ const refresh=()=>{
 
         if (dataArray[j][5]=== '0')
           {
-            console.log('inc: ' + dataArray[j][5]);
+            //console.log('inc: ' + dataArray[j][5]);
             divCreateInc(dataArray[j]);
             //console.log(dataArray[j]);
             let someData = dataArray[j][3].split(' ');
-            console.log(someData[1]);
-            total += parseInt(someData[1], 10);
+            //console.log(someData[1]);
+            total += parseInt(someData[0], 10);
           }
         else if (dataArray[j][5] === '1')
-          { console.log('exp: ' + dataArray[j][5]);
+          {
+            //console.log('exp: ' + dataArray[j][5]);
             divCreateExp(dataArray[j]);
             let someData = dataArray[j][3].split(' ');
-            console.log(someData[1]);
-            total -= parseInt(someData[1], 10);
+            //console.log(someData[1]);
+            total -= parseInt(someData[0], 10);
           }
       }
 
-  balance.innerHTML= `Balance: ${total}` ;
+  balance.innerHTML= `Balance: ${total} €` ;
 
 }}
-
+function clear() {
+  localStorage.clear();
+  dataArray = [];
+  refresh();
+}
 //   if (dataArray.length > 1)
 //     {
 //     dataArray.sort(compare(a,b));
@@ -115,13 +124,14 @@ const add = () => {
     if (place.value) {placeValue = `Place: ${place.value}`;}
     else {placeValue = '';}
     let clock;
+    let d = new Date();
     if (time.value) {
       clock = time.value;
     }
     else {clock = `${d.getHours()}:${d.getMinutes()}`}
     if (!date.value) {
-      let d = new Date();
-      let array = ['Info: ' + description.value, `${twoDigit(d.getDate())}/${twoDigit(d.getMonth())}/${d.getFullYear()}`, clock, 'Cash: ' + amount.value, placeValue, select.value ];
+
+      let array = ['Info: ' + description.value, `${twoDigit(d.getDate())}/${twoDigit(d.getMonth())}/${d.getFullYear()}`, clock, `${amount.value} €`, placeValue, select.value ];
       //divCreate(array);
       dataArray.push(array);
       console.log(`pushing data to array: ${array}`)
@@ -131,11 +141,13 @@ const add = () => {
     else {
       console.log('here');
       let formatedDate = date.value.split('-');
-      let array = ['Info: ' + description.value, `${formatedDate[2]}/${formatedDate[1]}/${formatedDate[0]}`, clock, 'Cash: ' + amount.value, placeValue, select.value ];
+      let array = ['Info: ' + description.value, `${formatedDate[2]}/${formatedDate[1]}/${formatedDate[0]}`, clock, `${amount.value} €`, placeValue, select.value ];
       //divCreate(array);
       dataArray.push(array);
       refresh();
     }
+    localStorage.setItem("data", JSON.stringify(dataArray));
 
 
 }};
+  refresh();

@@ -21,14 +21,36 @@ h1 {text-align: center;}
 #amount {
   width: 8em;
   }
-#date {width: 8em;}
+#date {width: 9em;}
 #place {width: 16em;}
 #selector {
   width: 8em;}
 button {
     flex-basis: 10%;
-
-
+}
+#addb {background-color: green;
+        color: white;
+        width: 6em;
+        padding: 4px 6px;
+        border-radius: 5px;
+        border: 0;
+        font-weight: 600;
+        box-shadow: 2px 2px 1px black;}
+#reset {background-color: red;
+        color: white;
+        width: 4em;
+        padding: 4px 6px;
+        border-radius: 5px;
+        border: 0;
+        font-weight: 600;
+        box-shadow: 2px 2px 1px black;}
+#addb:hover {
+  background-color: white;
+  color: green;
+}
+#reset:hover {
+  background-color: white;
+  color: red;
 }
 div {
 
@@ -42,6 +64,7 @@ div {
   font-size: large;
   font-weight: 800;
   padding: 5px;
+  border: 1px solid black;
 
 }
 span {
@@ -56,6 +79,7 @@ main span {
   background-color: gray;
   margin: 3px;
   text-align: center;
+  box-shadow: 1px 1px 1px black;
 
 }
 article {text-align: center;}
@@ -76,12 +100,13 @@ main div {
           margin: 10px 35%;
           justify-content: center;
           background-color: skyblue;
+          box-shadow: 1px 1px 1px black;
           }
 @media (max-width: 1000px) {
 
     div {width: 94%;
         margin: 3px 3%;}
-        
+
 
 }
 @media (max-width: 820px) {
